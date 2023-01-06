@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_discover_jokes">
+
+    <fragment
+        android:id="@+id/nav_discover_jokes"
+        android:name="com.dian.amuseme.DiscoverJokesFragment"
+        android:label="Discover Jokes"
+        tools:layout="@layout/fragment_discover_jokes" />
+
+    <fragment
+        android:id="@+id/nav_favorite_jokes"
+        android:name="com.dian.amuseme.FavoriteJokesFragment"
+        android:label="Favorite Jokes"
+        tools:layout="@layout/fragment_favorite_jokes" />
+
+    <fragment
+        android:id="@+id/nav_your_jokes"
+        android:name="com.dian.amuseme.YourJokesFragment"
+        android:label="Your Jokes"
+        tools:layout="@layout/fragment_your_jokes" />
+
+    <fragment
+        android:id="@+id/nav_joke_of_the_day"
+        android:name="com.dian.amuseme.JokeOfTheDayFragment"
+        android:label="Joke Of The Day"
+        tools:layout="@layout/fragment_joke_of_the_day" />
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.dian.amuseme.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about_us" />
+
+</navigation>

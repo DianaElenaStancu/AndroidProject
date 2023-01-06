@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_discover_jokes"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/discover_jokes" />
+        <item
+            android:id="@+id/nav_favorite_jokes"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/favorite_jokes" />
+        <item
+            android:id="@+id/nav_your_jokes"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/your_jokes" />
+        <item
+            android:id="@+id/nav_joke_of_the_day"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/joke_of_the_day" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/about_us" />
+    </group>
+</menu>
