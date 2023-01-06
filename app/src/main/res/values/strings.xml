@@ -25,4 +25,5 @@
     <string name="about_us_fragment">About Us Fragment</string>
     <string name="about_us">About Us</string>
     <string name="let_s_match_your_n_unique_n_sense_of_humor">Let\'s match your\n unique\n sense of humor</string>
+    <string name="joke_title_njoke_text_njoke_author">Joke Title\nJoke Text\nJoke Author</string>
 </resources>
