@@ -37,19 +37,19 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewJokeSetup, textViewJokePunchline, textViewJokeAuthor;
+        TextView textViewJokeSetup, textViewJokePunchline, textViewJokeCategory;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewJokeSetup = itemView.findViewById(R.id.textViewJokeSetup);
             textViewJokePunchline = itemView.findViewById(R.id.textViewJokePunchline);
-            textViewJokeAuthor = itemView.findViewById(R.id.textViewJokeAuthor);
+            textViewJokeCategory = itemView.findViewById(R.id.textViewJokeCategory);
         }
 
         public void setData(ItemModel itemModel) {
             textViewJokeSetup.setText(itemModel.getSetup());
             textViewJokePunchline.setText(itemModel.getPunchline());
-            textViewJokeAuthor.setText(itemModel.getAuthor());
+            textViewJokeCategory.setText(itemModel.getAuthor());
         }
     }
 

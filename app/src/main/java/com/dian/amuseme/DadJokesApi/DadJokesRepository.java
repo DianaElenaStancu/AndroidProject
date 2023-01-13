@@ -1,5 +1,7 @@
 package com.dian.amuseme.DadJokesApi;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,9 +33,9 @@ public class DadJokesRepository {
                     @Override
                     public void onResponse(Call<DadJokesApiResponse> call, Response<DadJokesApiResponse> response) {
                         if(response.isSuccessful()) {
-                            JokeDTO jokeDTO = response.body().getJokeDTO();
-                            if(jokeDTO != null) {
-                                callback.onSuccess(jokeDTO);
+                            List<JokeDTO> list = response.body().getJokeDTO();
+                            if(list != null) {
+                                callback.onSuccess(list);
                                 return;
                             }
                         }

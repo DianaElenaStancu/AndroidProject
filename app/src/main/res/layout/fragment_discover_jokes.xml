@@ -6,22 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".DiscoverJokesFragment">
 
-    <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:rotation="-8"
-        android:text="@string/let_s_match_your_n_unique_n_sense_of_humor"
-        android:textAlignment="center"
+<!--    <TextView-->
+<!--        android:id="@+id/text_slideshow"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:rotation="-8"-->
+<!--        android:text="@string/let_s_match_your_n_unique_n_sense_of_humor"-->
+<!--        android:textAlignment="center"-->
 
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/teal_200"
-        android:textSize="28sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+<!--        android:textColor="@color/teal_200"-->
+<!--        android:textSize="28sp"-->
+<!--        android:textStyle="bold|italic"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <!--    <androidx.cardview.widget.CardView-->
@@ -38,14 +38,12 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingVertical="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_slideshow"
-        app:layout_constraintTop_toBottomOf="@+id/text_slideshow">
+        app:layout_constraintStart_toStartOf="parent">
 
                 <com.yuyakaido.android.cardstackview.CardStackView
                     android:id="@+id/cardStackView"
@@ -61,58 +59,58 @@
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/textViewJoke"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/joke_title_njoke_text_njoke_author"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_slideshow"
-        android:visibility="invisible"/>
+<!--    <TextView-->
+<!--        android:id="@+id/textViewJoke"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/joke_title_njoke_text_njoke_author"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_slideshow"-->
+<!--        android:visibility="invisible"/>-->
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="32dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginBottom="32dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="horizontal">-->
 
-            <ImageButton
-                android:id="@+id/imageButtonDiscardJoke"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/white"
-                android:scaleType="fitCenter"
-                android:src="@drawable/discard_joke_icon" />
-        </LinearLayout>
+<!--            <ImageButton-->
+<!--                android:id="@+id/imageButtonDiscardJoke"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:scaleType="fitCenter"-->
+<!--                android:src="@drawable/discard_joke_icon" />-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="horizontal">-->
 
-            <ImageButton
-                android:id="@+id/imageButtonSaveJokeToFavorites"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/white"
-                android:scaleType="fitCenter"
-                android:src="@drawable/favorite_joke_icon" />
-        </LinearLayout>
+<!--            <ImageButton-->
+<!--                android:id="@+id/imageButtonSaveJokeToFavorites"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="@color/white"-->
+<!--                android:scaleType="fitCenter"-->
+<!--                android:src="@drawable/favorite_joke_icon" />-->
+<!--        </LinearLayout>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

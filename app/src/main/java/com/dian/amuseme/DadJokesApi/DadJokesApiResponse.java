@@ -6,9 +6,9 @@ import java.util.List;
 
 public class DadJokesApiResponse {
     @SerializedName("body")
-    List<JokeDTO> jokeDTO;
+    List<JokeDTO> listOfJokes;
 
-    public JokeDTO getJokeDTO() {
-        return jokeDTO.get(0);
+    public List<JokeDTO> getJokeDTO() {
+        return listOfJokes;
     }
 }

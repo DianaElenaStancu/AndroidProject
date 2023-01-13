@@ -15,16 +15,15 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:padding="16dp"
-        android:background="@drawable/gradation_black">
+        android:layout_gravity="center"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/textViewJokeSetup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="26sp"/>
 
         <TextView
@@ -32,15 +31,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/textViewJokeAuthor"
+            android:id="@+id/textViewJokeCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="20sp"/>
 
     </LinearLayout>
@@ -51,11 +50,15 @@
         android:layout_height="match_parent"
         android:background="@drawable/overlay_black">
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_forward_24"
-            android:layout_gravity="center"/>
+            android:layout_gravity="right"
+            android:padding="40dp"
+            android:rotation="33"
+            android:text="@string/bad"
+            android:textColor="@color/red"
+            android:textSize="48sp" />
 
     </FrameLayout>
 
@@ -65,39 +68,21 @@
         android:layout_height="match_parent"
         android:background="@drawable/overlay_black">
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            android:layout_gravity="center"/>
+            android:rotation="-33"
+            android:text="@string/nice"
+            android:textSize="48sp"
+            android:layout_gravity="left"
+            android:padding="40dp"
+            android:textColor="@color/yellow"/>
 
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/top_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/overlay_black">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_downward_24"
-            android:layout_gravity="center"/>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/bottom_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/overlay_black">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_upward_24"
-            android:layout_gravity="center"/>
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_baseline_arrow_forward_24"-->
+<!--            android:layout_gravity="center"/>-->
 
     </FrameLayout>
 
