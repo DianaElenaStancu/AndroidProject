@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_favorite_jokes"
-        android:name="com.dian.amuseme.FavoriteJokesFragment"
+        android:name="com.dian.amuseme.LocalDatabase.FavoriteJokesFragment"
         android:label="Favorite Jokes"
         tools:layout="@layout/fragment_favorite_jokes" />
 
