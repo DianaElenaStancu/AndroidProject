@@ -24,4 +24,7 @@
     <string name="joke_of_the_day">Joke Of The Day</string>
     <string name="about_us_fragment">About Us Fragment</string>
     <string name="about_us">About Us</string>
+    <string name="delete">Delete</string>
+    <string name="favorite_joke">Favorite Joke</string>
+    <string name="remove">Remove</string>
 </resources>
