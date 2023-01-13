@@ -1,7 +1,6 @@
-package com.dian.amuseme;
+package com.dian.amuseme.DiscoverJokes;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +9,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DiffUtil;
 
-import com.dian.amuseme.DadJokesApi.DadJokesRepository;
-import com.dian.amuseme.DadJokesApi.JokeDTO;
-import com.dian.amuseme.DadJokesApi.OnGetRandomJokeCallback;
+import com.dian.amuseme.DiscoverJokes.DadJokesApi.DadJokesRepository;
+import com.dian.amuseme.DiscoverJokes.DadJokesApi.JokeDTO;
+import com.dian.amuseme.DiscoverJokes.DadJokesApi.OnGetRandomJokeCallback;
+import com.dian.amuseme.R;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
@@ -82,7 +80,6 @@ public class DiscoverJokesFragment extends Fragment {
     private void setupViews(View view) {
         //imageButtonDiscardJoke = view.findViewById(R.id.imageButtonDiscardJoke);
         //imageButtonSaveJokeToFavorites = view.findViewById(R.id.imageButtonSaveJokeToFavorites);
-
         //textViewJoke = view.findViewById(R.id.textViewJoke);
         setupCardStackView(view);
     }
@@ -121,23 +118,19 @@ public class DiscoverJokesFragment extends Fragment {
 
                  */
                 if(direction == Direction.Right) {
-                    Toast.makeText(view.getContext(), "Direction right", Toast.LENGTH_SHORT).show();
+                    //TODO add the joke to favorites repository
+                    Toast.makeText(view.getContext(), adapter.getItems().get(manager.getTopPosition()-1).getSetup(), Toast.LENGTH_SHORT).show();
                 }
-                else if(direction == Direction.Left) {
-                    Toast.makeText(view.getContext(), "Direction left", Toast.LENGTH_SHORT).show();
-                }
-                Log.d(TAG, manager.getTopPosition() + " vs " + adapter.getItemCount());
+
+                //Log.d(TAG, manager.getTopPosition() + " vs " + adapter.getItemCount());
                 if(manager.getTopPosition() == adapter.getItemCount() - 2) {
                     //Toast.makeText(view.getContext(), "try to paginate", Toast.LENGTH_SHORT).show();
-                    repository.getRandomJoke(new OnGetRandomJokeCallback() {
+                    repository.getRandomJokes(new OnGetRandomJokeCallback() {
                         @Override
                         public void onSuccess(List<JokeDTO> list) {
-                            List<ItemModel> oldItems = adapter.getItems();
-                            List<ItemModel> newItems = new ArrayList<>();
-                            list.forEach(jokeDTO -> newItems.add(new ItemModel(jokeDTO.getSetup(), jokeDTO.getPunchline(), jokeDTO.getCategory())));
-
-                            oldItems.addAll(newItems);
-                            adapter.notifyItemRangeChanged(oldItems.size(), newItems.size());
+                            List<JokeDTO> oldItems = adapter.getItems();
+                            oldItems.addAll(list);
+                            adapter.notifyItemRangeChanged(oldItems.size(), list.size());
                         }
 
                         @Override
@@ -190,20 +183,43 @@ public class DiscoverJokesFragment extends Fragment {
         manager.setCanScrollVertical(false);
         manager.setSwipeableMethod(SwipeableMethod.Manual);
         manager.setOverlayInterpolator(new LinearInterpolator());
+
+//TODO uncomment this and comment next line when project is done
+//
+//        adapter = new CardStackAdapter(new ArrayList<>());
+//        repository.getRandomJokes(new OnGetRandomJokeCallback() {
+//            @Override
+//            public void onSuccess(List<JokeDTO> list) {
+//                Log.d(TAG, "onsucc=");
+//                List<ItemModel> oldItems = adapter.getItems();
+//
+//                oldItems.addAll(list);
+//                adapter.notifyItemRangeChanged(oldItems.size(), list.size());
+//            }
+//
+//            @Override
+//            public void onError() {
+//                Log.d(TAG, "onerr=");
+//            }
+//        });
+
         adapter = new CardStackAdapter(addList());
 
         cardStackView.setLayoutManager(manager);
         cardStackView.setAdapter(adapter);
         cardStackView.setItemAnimator(new DefaultItemAnimator());
+
+
     }
 
 
+    /*
     private void paginate() {
         List<ItemModel> oldItems = adapter.getItems();
         List<ItemModel> newItems = addList();
         oldItems.addAll(newItems);
         adapter.notifyItemRangeChanged(oldItems.size(), newItems.size());
-        /*
+
         List<ItemModel> newItems = new ArrayList<>(addList());
 
         //CardStackCallback callback = new CardStackCallback(oldItems, newItems);
@@ -212,17 +228,18 @@ public class DiscoverJokesFragment extends Fragment {
         adapter.setItems(newItems);
 
         //result.dispatchUpdatesTo(adapter);
-         */
-    }
 
-    private List<ItemModel> addList() {
-        List<ItemModel> items = new ArrayList<>();
-        items.add(new ItemModel("hey", "hahapunchline", "andrei bejan"));
-        items.add(new ItemModel("hey1", "hahapunchline", "andrei bejan"));
-        items.add(new ItemModel("hey2", "hahapunchline", "andrei bejan"));
-        items.add(new ItemModel("hey3", "hahapunchline", "andrei bejan"));
-        items.add(new ItemModel("hey4", "hahapunchline", "andrei bejan"));
+    }
+*/
+    private List<JokeDTO> addList() {
+        List<JokeDTO> items = new ArrayList<>();
+        items.add(new JokeDTO("hey", "hahapunchline", "andrei bejan"));
+        items.add(new JokeDTO("hey1", "hahapunchline", "andrei bejan"));
+        items.add(new JokeDTO("hey2", "hahapunchline", "andrei bejan"));
+        items.add(new JokeDTO("hey3", "hahapunchline", "andrei bejan"));
+        items.add(new JokeDTO("hey4", "hahapunchline", "andrei bejan"));
 
         return items;
     }
+
 }

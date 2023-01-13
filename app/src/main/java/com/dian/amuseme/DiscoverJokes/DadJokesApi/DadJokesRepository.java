@@ -1,4 +1,4 @@
-package com.dian.amuseme.DadJokesApi;
+package com.dian.amuseme.DiscoverJokes.DadJokesApi;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class DadJokesRepository {
         return repository;
     }
 
-    public void getRandomJoke(OnGetRandomJokeCallback callback) {
+    public void getRandomJokes(OnGetRandomJokeCallback callback) {
         api     .getRandomJoke()
                 .enqueue(new Callback<DadJokesApiResponse>() {
                     @Override

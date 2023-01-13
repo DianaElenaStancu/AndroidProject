@@ -1,6 +1,4 @@
-package com.dian.amuseme.DadJokesApi;
-
-import java.util.List;
+package com.dian.amuseme.DiscoverJokes.DadJokesApi;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

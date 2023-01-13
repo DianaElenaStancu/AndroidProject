@@ -1,4 +1,4 @@
-package com.dian.amuseme;
+package com.dian.amuseme.DiscoverJokes;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +8,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dian.amuseme.DiscoverJokes.DadJokesApi.JokeDTO;
+import com.dian.amuseme.R;
+
 import java.util.List;
 
 public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.ViewHolder> {
-    private List<ItemModel> items;
+    private List<JokeDTO> items;
 
-    public CardStackAdapter(List<ItemModel> items) {
+    public CardStackAdapter(List<JokeDTO> items) {
         this.items = items;
     }
 
@@ -46,18 +49,18 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
             textViewJokeCategory = itemView.findViewById(R.id.textViewJokeCategory);
         }
 
-        public void setData(ItemModel itemModel) {
-            textViewJokeSetup.setText(itemModel.getSetup());
-            textViewJokePunchline.setText(itemModel.getPunchline());
-            textViewJokeCategory.setText(itemModel.getAuthor());
+        public void setData(JokeDTO jokeDTO) {
+            textViewJokeSetup.setText(jokeDTO.getSetup());
+            textViewJokePunchline.setText(jokeDTO.getPunchline());
+            textViewJokeCategory.setText(jokeDTO.getCategory());
         }
     }
 
-    public void setItems(List<ItemModel> items) {
+    public void setItems(List<JokeDTO> items) {
         this.items = items;
     }
 
-    public List<ItemModel> getItems() {
+    public List<JokeDTO> getItems() {
         return items;
     }
 }

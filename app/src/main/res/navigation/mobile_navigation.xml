@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_discover_jokes"
-        android:name="com.dian.amuseme.DiscoverJokesFragment"
+        android:name="com.dian.amuseme.DiscoverJokes.DiscoverJokesFragment"
         android:label="Discover Jokes"
         tools:layout="@layout/fragment_discover_jokes" />
 

@@ -1,4 +1,4 @@
-package com.dian.amuseme.DadJokesApi;
+package com.dian.amuseme.DiscoverJokes.DadJokesApi;
 
 import java.util.List;
 

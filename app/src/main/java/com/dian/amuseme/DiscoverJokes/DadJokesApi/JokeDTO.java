@@ -1,4 +1,4 @@
-package com.dian.amuseme.DadJokesApi;
+package com.dian.amuseme.DiscoverJokes.DadJokesApi;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -24,6 +24,11 @@ public class JokeDTO {
         return category;
     }
 
+    public JokeDTO(String setup, String punchline, String category) {
+        this.setup = setup;
+        this.punchline = punchline;
+        this.category = category;
+    }
 
     @Override
     public String toString() {
