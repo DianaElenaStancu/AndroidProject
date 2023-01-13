@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_discover_jokes"
-        android:name="com.dian.amuseme.DiscoverJokesFragment"
+        android:name="com.dian.amuseme.DiscoverJokes.DiscoverJokesFragment"
         android:label="Discover Jokes"
         tools:layout="@layout/fragment_discover_jokes" />
 
     <fragment
         android:id="@+id/nav_favorite_jokes"
-        android:name="com.dian.amuseme.FavoriteJokesFragment"
+        android:name="com.dian.amuseme.LocalDatabase.FavoriteJokesFragment"
         android:label="Favorite Jokes"
         tools:layout="@layout/fragment_favorite_jokes" />
 

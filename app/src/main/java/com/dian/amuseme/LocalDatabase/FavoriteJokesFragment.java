@@ -1,4 +1,4 @@
-package com.dian.amuseme;
+package com.dian.amuseme.LocalDatabase;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.dian.amuseme.R;
 
 public class FavoriteJokesFragment extends Fragment {
     @Override
