@@ -31,4 +31,8 @@
     <string name="joke_title_njoke_text_njoke_author">Joke Title\nJoke Text\nJoke Author</string>
     <string name="nice">Nice</string>
     <string name="bad">Bad</string>
+    <string name="setup">setup</string>
+    <string name="punchline">punchline</string>
+    <string name="category">category</string>
+    <string name="date">date</string>
 </resources>
