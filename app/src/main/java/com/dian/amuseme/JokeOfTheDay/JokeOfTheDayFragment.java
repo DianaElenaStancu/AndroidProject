@@ -1,4 +1,4 @@
-package com.dian.amuseme;
+package com.dian.amuseme.JokeOfTheDay;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,12 +15,10 @@ import android.widget.TextView;
 import com.dian.amuseme.DiscoverJokes.DadJokesApi.DadJokesRepository;
 import com.dian.amuseme.DiscoverJokes.DadJokesApi.JokeDTO;
 import com.dian.amuseme.DiscoverJokes.DadJokesApi.OnGetRandomJokeCallback;
+import com.dian.amuseme.R;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 

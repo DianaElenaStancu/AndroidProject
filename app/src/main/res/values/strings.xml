@@ -35,4 +35,9 @@
     <string name="punchline">punchline</string>
     <string name="category">category</string>
     <string name="date">date</string>
+    <string name="save">save</string>
+    <string name="cancel">cancel</string>
+    <string name="text">Text:</string>
+    <string name="title">Title:</string>
+    <string name="edit_your_joke">Edit your joke</string>
 </resources>
