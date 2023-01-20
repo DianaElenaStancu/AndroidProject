@@ -50,7 +50,7 @@ public class DiscoverJokesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_discover_jokes, container, false);
         repository = DadJokesRepository.getInstance();
         jokeViewModel = new ViewModelProvider(this).get(FavoriteJokeViewModel.class);
-        //jokeViewModel.getFavoriteJokes().observe(getViewLifecycleOwner(), jokes -> Log.d(TAG, jokes.toString()));
+        jokeViewModel.getFavoriteJokes().observe(getViewLifecycleOwner(), jokes -> Log.d(TAG, jokes.toString()));
 
         setupViews(view);
 

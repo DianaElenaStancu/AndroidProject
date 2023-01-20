@@ -8,13 +8,15 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.dian.amuseme.DiscoverJokes.DadJokesApi.JokeDTO;
+import com.dian.amuseme.YourJokes.OwnJoke;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-@Database(entities = {JokeDTO.class}, version = 3)
+@Database(entities = {JokeDTO.class, OwnJoke.class}, version = 4)
 public abstract class FavoriteJokesRoomDatabase extends RoomDatabase {
     public abstract JokeDAO jokeDAO();
+    public abstract OwnJokeDAO ownJokeDAO();
 
     private static FavoriteJokesRoomDatabase database;
 
