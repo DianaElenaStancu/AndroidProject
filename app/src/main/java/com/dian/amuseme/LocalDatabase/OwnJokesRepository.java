@@ -12,11 +12,13 @@ import java.util.List;
 public class OwnJokesRepository {
     private OwnJokeDAO ownJokeDAO;
     private LiveData<List<OwnJoke>> ownJokes;
+    private LiveData<OwnJoke> ownJoke;
 
     public OwnJokesRepository(Context context) {
         FavoriteJokesRoomDatabase ownJokesRoomDatabase = FavoriteJokesRoomDatabase.getInstance(context);
         ownJokeDAO = ownJokesRoomDatabase.ownJokeDAO();
         ownJokes = ownJokeDAO.getAll();
+        ownJoke = ownJokeDAO.getOne(0);
     }
 
     public void insert(OwnJoke ownJoke) {
@@ -27,4 +29,11 @@ public class OwnJokesRepository {
         return ownJokes;
     }
 
+    public void update(OwnJoke ownJoke) {
+        FavoriteJokesRoomDatabase.databaseWriterExecutor.execute(()->ownJokeDAO.update(ownJoke));
+    }
+
+    public LiveData<OwnJoke> getOwnJoke(int jokeId) {
+        return ownJokeDAO.getOne(jokeId);
+    }
 }

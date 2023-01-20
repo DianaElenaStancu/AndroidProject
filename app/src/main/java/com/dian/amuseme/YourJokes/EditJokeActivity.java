@@ -1,6 +1,7 @@
 package com.dian.amuseme.YourJokes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ import com.dian.amuseme.R;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.List;
 
 public class EditJokeActivity extends AppCompatActivity {
     private static final String TAG = "MyEditJokeActivity";
@@ -29,6 +31,7 @@ public class EditJokeActivity extends AppCompatActivity {
     Button buttonEditJokeCancel, buttonEditJokeSave;
 
     private OwnJokeViewModel jokeViewModel;
+    private int jokeId;
 
 
     @Override
@@ -37,26 +40,19 @@ public class EditJokeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_joke);
 
         Intent intent = getIntent();
-        int jokeId = intent.getIntExtra(JOKE_ID_TAG, -1);
+        jokeId = intent.getIntExtra(JOKE_ID_TAG, -1);
 
         setupViews();
 
         jokeViewModel = new ViewModelProvider(this).get(OwnJokeViewModel.class);
 
-        loadJokeInfo(jokeId);
+        if(jokeId != -1)
+            jokeViewModel.getOwnJoke(jokeId).observe(this, joke -> loadJokeInfo(joke));
     }
 
-    private void loadJokeInfo(int jokeId) {
-        OwnJoke ownJoke = getJoke(jokeId);
-
+    private void loadJokeInfo(OwnJoke ownJoke) {
         textViewEditJokeTitle.setText(ownJoke.getTitle());
         textViewEditJokeText.setText(ownJoke.getText());
-    }
-
-    private OwnJoke getJoke(int jokeId) {
-        //TODO replace this with connection to local db
-        OwnJoke ownJoke = new OwnJoke("Title" + jokeId, "SOME LONG text @tyczj ViewHolder.getPosition(), btw when you create a ViewHolder you dont know the position, position is set in onBindViewHolder");
-        return ownJoke;
     }
 
     private void setupViews() {
@@ -72,23 +68,40 @@ public class EditJokeActivity extends AppCompatActivity {
             }
         });
 
-        buttonEditJokeSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO save changes to local db
-                OwnJoke ownJoke = new OwnJoke("hey title", "hey text");
-                DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
-                ownJoke.setTimeAdded(formatter.format(LocalDateTime.now()));
-                jokeViewModel.insert(ownJoke);
+        if(jokeId == -1) {
+            buttonEditJokeSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String title = textViewEditJokeTitle.getText().toString();
+                    String text = textViewEditJokeText.getText().toString();
 
-                //jokeViewModel.getOwnJokes().observe(EditJokeActivity.this, jokes -> Log.d(TAG, jokes.toString()));
+                    OwnJoke ownJoke = new OwnJoke(title, text);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+                    ownJoke.setTimeAdded(formatter.format(LocalDateTime.now()));
 
-                //Toast.makeText(EditJokeActivity.this, "first val: " + jokeViewModel.getOwnJokes().getValue().get(0), Toast.LENGTH_SHORT).show();
+                    jokeViewModel.insert(ownJoke);
+                    finish();
+                }
+            });
+        }
+        else {
+            buttonEditJokeSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //TODO save changes to local db
+                    String title = textViewEditJokeTitle.getText().toString();
+                    String text = textViewEditJokeText.getText().toString();
 
+                    OwnJoke ownJoke = new OwnJoke(title, text);
+                    ownJoke.setId(jokeId);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+                    ownJoke.setTimeAdded(formatter.format(LocalDateTime.now()));
 
-                finish();
-            }
-        });
+                    jokeViewModel.update(ownJoke);
+                    finish();
+                }
+            });
+        }
 
     }
 

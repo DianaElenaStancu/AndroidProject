@@ -22,7 +22,7 @@ public abstract class FavoriteJokesRoomDatabase extends RoomDatabase {
 
     public static FavoriteJokesRoomDatabase getInstance(Context context) {
         if(database == null) {
-            database = Room.databaseBuilder(context.getApplicationContext(), FavoriteJokesRoomDatabase.class, "jokes_database").fallbackToDestructiveMigration().build();
+            database = Room.databaseBuilder(context.getApplicationContext(), FavoriteJokesRoomDatabase.class, "jokes_database").allowMainThreadQueries().fallbackToDestructiveMigration().build();
         }
         return database;
     }

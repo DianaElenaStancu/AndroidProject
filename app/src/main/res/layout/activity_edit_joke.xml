@@ -38,7 +38,8 @@
             android:layout_marginStart="4dp"
             android:maxLines="1"
             android:textSize="20sp"
-            tools:text="hello world title" />
+            tools:text="hello world title"
+            android:hint="add a title"/>
     </LinearLayout>
 
     <LinearLayout
@@ -60,6 +61,7 @@
             android:layout_marginStart="4dp"
             android:maxLines="5"
             android:textSize="20sp"
+            android:hint="add the joke"
             tools:text="Git 2.23 adds the new switch subcommand in an attempt to clear some of the confusion that comes from the overloaded usage of checkout (switching branches, restoring files, detaching HEAD, etc.)" />
     </LinearLayout>
 

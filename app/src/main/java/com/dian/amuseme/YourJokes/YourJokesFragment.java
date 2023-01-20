@@ -1,51 +1,51 @@
 package com.dian.amuseme.YourJokes;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.dian.amuseme.LocalDatabase.OwnJokeViewModel;
 import com.dian.amuseme.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class YourJokesFragment extends Fragment {
+    private static final String TAG = "YourJokesFragment";
     private RecyclerView recyclerViewYourJokes;
-    private List<OwnJoke> jokeList;
+    private OwnJokeViewModel jokeViewModel;
+    private FloatingActionButton fabAddNewJoke;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_your_jokes, container, false);
         recyclerViewYourJokes = view.findViewById(R.id.recyclerViewYourJokes);
-        jokeList = Arrays.asList(
-                new OwnJoke("Watch this!", "Virtual reality (VR) is a simulated experience that employs pose tracking and 3D near-eye displays to give the user an immersive feel of a virtual world."),
-                new OwnJoke("Where you going?", "Currently, standard virtual reality systems use either virtual reality headsets or multi-projected environments to generate some realistic images, sounds and other sensations that simulate a user's physical presence in a virtual environment."),
-                new OwnJoke("This is the answer!", "A person using virtual reality equipment is able to look around the artificial world, move around in it, and interact with virtual features or items. The effect is commonly created by VR headsets consisting of a head-mounted display with a small screen in front of the eyes, but can also be created through specially designed rooms with multiple large screens. Virtual reality typically incorporates auditory and video feedback, but may also allow other types of sensory and force feedback through haptic technology."),
-                new OwnJoke("OMG BRO?!", "\"Virtual\" has had the meaning of \"being something in essence or effect, though not actually or in fact\" since the mid-1400s."),
-                new OwnJoke("Where you going?", "Currently, standard virtual reality systems use either virtual reality headsets or multi-projected environments to generate some realistic images, sounds and other sensations that simulate a user's physical presence in a virtual environment."),
-                new OwnJoke("OMG BRO?!", "\"Virtual\" has had the meaning of \"being something in essence or effect, though not actually or in fact\" since the mid-1400s."),
-                new OwnJoke("This is the answer!", "A person using virtual reality equipment is able to look around the artificial world, move around in it, and interact with virtual features or items. The effect is commonly created by VR headsets consisting of a head-mounted display with a small screen in front of the eyes, but can also be created through specially designed rooms with multiple large screens. Virtual reality typically incorporates auditory and video feedback, but may also allow other types of sensory and force feedback through haptic technology."),
-                new OwnJoke("Watch this!", "Virtual reality (VR) is a simulated experience that employs pose tracking and 3D near-eye displays to give the user an immersive feel of a virtual world."),
-                new OwnJoke("OMG BRO?!", "\"Virtual\" has had the meaning of \"being something in essence or effect, though not actually or in fact\" since the mid-1400s."),
-                new OwnJoke("This is the answer!", "A person using virtual reality equipment is able to look around the artificial world, move around in it, and interact with virtual features or items. The effect is commonly created by VR headsets consisting of a head-mounted display with a small screen in front of the eyes, but can also be created through specially designed rooms with multiple large screens. Virtual reality typically incorporates auditory and video feedback, but may also allow other types of sensory and force feedback through haptic technology."),
-                new OwnJoke("Watch this!", "Virtual reality (VR) is a simulated experience that employs pose tracking and 3D near-eye displays to give the user an immersive feel of a virtual world."),
-                new OwnJoke("Watch this!", "Virtual reality (VR) is a simulated experience that employs pose tracking and 3D near-eye displays to give the user an immersive feel of a virtual world."),
-                new OwnJoke("Where you going?", "Currently, standard virtual reality systems use either virtual reality headsets or multi-projected environments to generate some realistic images, sounds and other sensations that simulate a user's physical presence in a virtual environment."),
-                new OwnJoke("This is the answer!", "A person using virtual reality equipment is able to look around the artificial world, move around in it, and interact with virtual features or items. The effect is commonly created by VR headsets consisting of a head-mounted display with a small screen in front of the eyes, but can also be created through specially designed rooms with multiple large screens. Virtual reality typically incorporates auditory and video feedback, but may also allow other types of sensory and force feedback through haptic technology."),
-                new OwnJoke("OMG BRO?!", "\"Virtual\" has had the meaning of \"being something in essence or effect, though not actually or in fact\" since the mid-1400s."),
-                new OwnJoke("Where you going?", "Currently, standard virtual reality systems use either virtual reality headsets or multi-projected environments to generate some realistic images, sounds and other sensations that simulate a user's physical presence in a virtual environment.")
-                );
-        recyclerViewYourJokes.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL));
-        recyclerViewYourJokes.setAdapter(new OwnJokesAdapter(jokeList));
+        fabAddNewJoke = view.findViewById(R.id.fabAddNewJoke);
+        fabAddNewJoke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), EditJokeActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+
+        jokeViewModel = new ViewModelProvider(this).get(OwnJokeViewModel.class);
+        jokeViewModel.getOwnJokes().observe(getViewLifecycleOwner(), jokes -> reloadJokeList(jokes));
 
         return view;
     }
@@ -53,10 +53,11 @@ public class YourJokesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        reloadJokeList();
+        Toast.makeText(getContext(), "onResume: ", Toast.LENGTH_SHORT).show();
     }
 
-    private void reloadJokeList() {
-        //TODO IMPLEMENT THIS
+    private void reloadJokeList(List<OwnJoke> jokes) {
+        recyclerViewYourJokes.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL));
+        recyclerViewYourJokes.setAdapter(new OwnJokesAdapter(jokes));
     }
 }

@@ -28,4 +28,12 @@ public class OwnJokeViewModel extends AndroidViewModel {
     public LiveData<List<OwnJoke>> getOwnJokes(){
         return jokes;
     }
+
+    public void update(OwnJoke ownJoke) {
+        jokesRepository.update(ownJoke);
+    }
+
+    public LiveData<OwnJoke> getOwnJoke(int jokeId) {
+        return jokesRepository.getOwnJoke(jokeId);
+    }
 }
