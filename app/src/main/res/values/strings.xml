@@ -35,4 +35,6 @@
     <string name="punchline">punchline</string>
     <string name="category">category</string>
     <string name="date">date</string>
+    <string name="punchline_joke">Punchline Joke</string>
+    <string name="category_joke">Category Joke</string>
 </resources>

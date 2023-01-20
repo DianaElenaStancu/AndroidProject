@@ -27,4 +27,8 @@ public class FavoriteJokeViewModel extends AndroidViewModel {
     public LiveData<List<JokeDTO>> getFavoriteJokes(){
         return jokes;
     }
+
+    public void delete(JokeDTO currentFavoriteJoke) {
+        jokesRepository.delete(currentFavoriteJoke);
+    }
 }
