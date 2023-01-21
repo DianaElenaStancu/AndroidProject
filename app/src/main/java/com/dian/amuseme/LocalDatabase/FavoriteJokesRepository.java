@@ -27,4 +27,7 @@ public class FavoriteJokesRepository {
         return favoriteJokes;
     }
 
+    public void delete(JokeDTO currentFavoriteJoke) {
+        FavoriteJokesRoomDatabase.databaseWriterExecutor.execute(()->jokeDAO.delete(currentFavoriteJoke));
+    }
 }

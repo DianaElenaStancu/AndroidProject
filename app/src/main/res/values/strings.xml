@@ -40,4 +40,6 @@
     <string name="text">Text:</string>
     <string name="title">Title:</string>
     <string name="edit_your_joke">Edit your joke</string>
+    <string name="punchline_joke">Punchline Joke</string>
+    <string name="category_joke">Category Joke</string>
 </resources>

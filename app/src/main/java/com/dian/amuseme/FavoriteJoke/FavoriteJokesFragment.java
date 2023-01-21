@@ -3,6 +3,7 @@ package com.dian.amuseme.FavoriteJoke;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dian.amuseme.DiscoverJokes.DadJokesApi.JokeDTO;
-import com.dian.amuseme.LocalDatabase.FavoriteJokesRoomDatabase;
+import com.dian.amuseme.LocalDatabase.FavoriteJokeViewModel;
 import com.dian.amuseme.R;
 
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ import java.util.List;
 
 public class FavoriteJokesFragment extends Fragment {
 
-    private List<JokeDTO> favoriteJokeList;
-    private FavoriteJokesRoomDatabase favoriteJokesRoomDatabase;
+    private List<JokeDTO> favoriteJokesList=new ArrayList<>();
+    private FavoriteJokeViewModel favoriteJokeViewModel;
     private RecyclerView favoriteJokesRecyclerView;
 
     @Override
@@ -28,8 +29,11 @@ public class FavoriteJokesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favorite_jokes, container, false);
         favoriteJokesRecyclerView = view.findViewById(R.id.recyclerViewFavoriteJokes);
-        setupRecyclerView();
-        
+
+        favoriteJokeViewModel = new ViewModelProvider(this).get(FavoriteJokeViewModel.class);
+        favoriteJokeViewModel.getFavoriteJokes().observe(getViewLifecycleOwner(), favoriteJokesList -> setupRecyclerView(favoriteJokesList));
+
+
         return view;
     }
 
@@ -38,14 +42,12 @@ public class FavoriteJokesFragment extends Fragment {
     // 1.1. create dedicated class for favorite joke
     // 1.2. populate the data source
 
-    private void setFavoriteJokeList() {
-        favoriteJokeList = new ArrayList<>();
-        favoriteJokeList.add(new JokeDTO("aaaa", "bbbb", "ssss"));
-        favoriteJokeList.add(new JokeDTO("aaaa", "bbbb", "ssss"));
-        favoriteJokeList.add(new JokeDTO("aaaa", "bbbb", "ssss"));
-        favoriteJokeList.add(new JokeDTO("aaaa", "bbbb", "ssss"));
-        favoriteJokeList.add(new JokeDTO("aaaa", "bbbb", "ssss"));
+    private void setupRecyclerView(List<JokeDTO> favoriteJokesList) {
+        this.favoriteJokesList = favoriteJokesList;
+        setFavoriteJokesLayoutManager();
+        setFavoriteJokesAdapter();
     }
+
     // 2 -- get custom adapter
     // 2.1. define the ViewHolder
     // 2.2. define the Adapter
@@ -57,12 +59,6 @@ public class FavoriteJokesFragment extends Fragment {
     }
 
     private void setFavoriteJokesAdapter() {
-        favoriteJokesRecyclerView.setAdapter(new FavoriteJokeAdapter(favoriteJokeList));
-    }
-
-    private void setupRecyclerView() {
-        setFavoriteJokeList();
-        setFavoriteJokesLayoutManager();;
-        setFavoriteJokesAdapter();
+        favoriteJokesRecyclerView.setAdapter(new FavoriteJokeAdapter(favoriteJokesList, this));
     }
 }
