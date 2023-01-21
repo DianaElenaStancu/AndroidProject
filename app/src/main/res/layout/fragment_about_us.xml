@@ -7,30 +7,30 @@
     android:orientation="vertical"
     tools:context=".AboutUsFragment">
 
-    <TextView
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="About us"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:layout_marginHorizontal="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:id="@+id/text_slideshow"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:text="About us"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="30sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
-        android:layout_marginBottom="10dp"
+        android:layout_marginVertical="30dp"
         android:layout_marginHorizontal="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="This app was made by two very excited 2nd year students and stands as a final project for the Android Developer Fundamentals Course of Google's Digital Workshop, course held by Magda Miu who we must thank again for sharing her knowledge with us."
+        android:text="This app was made by two very motivated 2nd year students and stands as the final project for the Android Developer Fundamentals Course part of Google's Digital Workshop, course held by Magda Miu who we must thank again for sharing her knowledge with us."
         />
     <Space
         android:layout_width="match_parent"

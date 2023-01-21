@@ -110,14 +110,13 @@ public class DiscoverJokesFragment extends Fragment {
         manager.setCanScrollVertical(false);
         manager.setSwipeableMethod(SwipeableMethod.Manual);
         manager.setOverlayInterpolator(new LinearInterpolator());
-//TODO uncomment this and comment next line when project is done
-//
+
 //        adapter = new CardStackAdapter(new ArrayList<>());
 //        repository.getRandomJokes(new OnGetRandomJokeCallback() {
 //            @Override
 //            public void onSuccess(List<JokeDTO> list) {
 //                Log.d(TAG, "onsucc=");
-//                List<ItemModel> oldItems = adapter.getItems();
+//                List<JokeDTO> oldItems = adapter.getItems();
 //
 //                oldItems.addAll(list);
 //                adapter.notifyItemRangeChanged(oldItems.size(), list.size());
@@ -137,11 +136,11 @@ public class DiscoverJokesFragment extends Fragment {
 
     private List<JokeDTO> addList() {
         List<JokeDTO> items = new ArrayList<>();
-        items.add(new JokeDTO("hey", "hahapunchline", "andrei bejan"));
-        items.add(new JokeDTO("hey1", "hahapunchline", "andrei bejan"));
-        items.add(new JokeDTO("hey2", "hahapunchline", "andrei bejan"));
-        items.add(new JokeDTO("hey3", "hahapunchline", "andrei bejan"));
-        items.add(new JokeDTO("hey4", "hahapunchline", "andrei bejan"));
+        items.add(new JokeDTO("setup", "punchline", "category"));
+        items.add(new JokeDTO("setup1", "punchline", "category"));
+        items.add(new JokeDTO("setup2", "punchline", "category"));
+        items.add(new JokeDTO("setup3", "punchline", "category"));
+        items.add(new JokeDTO("setup4", "punchline", "category"));
 
         return items;
     }

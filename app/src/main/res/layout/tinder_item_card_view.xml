@@ -35,6 +35,7 @@
             android:textSize="18sp"/>
 
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/textViewJokeCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,8 +57,8 @@
             android:layout_gravity="right"
             android:padding="40dp"
             android:rotation="33"
-            android:text="@string/bad"
-            android:textColor="@color/red"
+            android:text="lame"
+            android:textColor="@color/purple_200"
             android:textSize="48sp" />
 
     </FrameLayout>
@@ -72,11 +73,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:rotation="-33"
-            android:text="@string/nice"
+            android:text="LOL"
             android:textSize="48sp"
             android:layout_gravity="left"
             android:padding="40dp"
-            android:textColor="@color/yellow"/>
+            android:textColor="@color/purple_200"/>
 
 <!--        <ImageView-->
 <!--            android:layout_width="wrap_content"-->

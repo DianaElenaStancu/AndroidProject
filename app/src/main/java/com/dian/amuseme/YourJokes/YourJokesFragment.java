@@ -53,7 +53,7 @@ public class YourJokesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        Toast.makeText(getContext(), "onResume: ", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), "onResume: ", Toast.LENGTH_SHORT).show();
     }
 
     private void reloadJokeList(List<OwnJoke> jokes) {

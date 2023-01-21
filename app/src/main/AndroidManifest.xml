@@ -8,9 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/funny_mask"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/funny_mask"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmuseMe"
         tools:targetApi="31">
@@ -24,7 +24,7 @@
         <activity
             android:name=".NavigationDrawerActivity"
             android:exported="true"
-            android:label="@string/title_activity_navigation_drawer"
+            android:label="AmuseMe"
             android:theme="@style/Theme.AmuseMe.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
