@@ -11,7 +11,7 @@ https://dad-jokes.p.rapidapi.com/random/joke?count=1
 
 public interface DadJokesApi {
     @Headers({
-            "X-RapidAPI-Key: aad151b9d7msh4613eba551b16e9p12325ajsncc944fa4666d",
+            "X-RapidAPI-Key: secret-key",
             "X-RapidAPI-Host: dad-jokes.p.rapidapi.com"
     })
     @GET("random/joke?count=5")
